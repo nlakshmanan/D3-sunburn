@@ -5,17 +5,33 @@ var radius = Math.min(width, height) / 2;
 
 // Breadcrumb dimensions: width, height, spacing, width of tip/tail.
 var b = {
-  w: 75, h: 30, s: 3, t: 10
+  w: 95, h: 30, s: 3, t: 10
 };
 
 // Mapping of step names to colors.
 var colors = {
-  "home": "#5687d1",
-  "product": "#7b615c",
-  "search": "#de783b",
-  "account": "#6ab975",
-  "other": "#a173d1",
-  "end": "#bbbbbb"
+  "Pullman": "#5687d1",
+  "Douglas": "#7b615c",
+  "Englewood": "#de783b",
+  "Loop": "#6ab975",
+  "Fuller Park": "#a173d1",
+  "Excessive Force": "#006650",
+  "Inadequate":"#00b38c", 
+  "Domestic": "#00ffc8",
+  "No Action": "#396AB1",//"#bbbbbb",
+  "Suspension" : "#DA7C30",//"#bbbbbb",
+  "Exonerated": "#3E9651",//"#bbbbbb",
+  "No Affidavit":"#CC2529",//"#bbbbbb",
+  "Not Sustained":"#6B4C9A",//"#bbbbbb",
+  "Sustained":"#922428",//"#bbbbbb",
+  "Unsustained":"#948B3D",//"#bbbbbb"
+  "Unfounded":"#947A3D",
+  "Other": "#bbbbbb",
+  "Unknown": "#bbbbbb",
+  "end": "#bbbbbb",
+
+
+
 };
 
 // Total size of all segments; we set this later, after loading the data.
@@ -39,7 +55,7 @@ var arc = d3.arc()
 
 // Use d3.text and d3.csvParseRows so that we do not need to have a header
 // row, and can receive the csv as an array of arrays.
-d3.text("https://gist.githubusercontent.com/nlakshmanan/512e30925b970041cb16c0f219452be0/raw/14e1499ef1fb5f03df8d0edb87a5fc2af02a615e/visit-sequences.csv", function(text) {
+d3.text("https://gist.githubusercontent.com/nlakshmanan/512e30925b970041cb16c0f219452be0/raw/f85724c747de783766256eb025701eb20d241f28/visit-sequences.csv", function(text) {
   var csv = d3.csvParseRows(text);
   var json = buildHierarchy(csv);
   createVisualization(json);
@@ -215,7 +231,7 @@ function drawLegend() {
 
   // Dimensions of legend item: width, height, spacing, radius of rounded rect.
   var li = {
-    w: 75, h: 30, s: 3, r: 3
+    w: 95, h: 30, s: 3, r: 3
   };
 
   var legend = d3.select("#legend").append("svg:svg")
