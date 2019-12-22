@@ -7,4 +7,6 @@ This visualization uses the Sunburn template developed by Kerry Rodden https://g
 
 # Packages required to run 
 D3 V4
+'''
 npm install d3v4
+'''
